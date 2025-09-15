@@ -1,0 +1,8 @@
+.brands img {
+    max-width: 120px;
+    transition: transform 0.3s ease;
+  }
+  .brands img:hover {
+    transform: scale(1.1);
+  }
+  

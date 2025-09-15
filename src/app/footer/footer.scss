@@ -1,0 +1,24 @@
+footer h5, footer h6 {
+    color: var(--secondary-yellow);
+  }
+  
+  footer a {
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: var(--secondary-yellow);
+  }
+  
+  footer .social-links a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--text-light);
+    transition: color 0.3s;
+  }
+  
+  footer .social-links a:hover {
+    color: var(--secondary-yellow);
+  }
+  

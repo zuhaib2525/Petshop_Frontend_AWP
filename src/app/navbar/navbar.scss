@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #fff;
+    .nav-link {
+      font-weight: 500;
+      margin-left: 1rem;
+      &:hover {
+        color: #dc3545;
+      }
+    }
+  }
+  

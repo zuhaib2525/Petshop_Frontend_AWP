@@ -1,0 +1,13 @@
+<section class="categories text-center py-5">
+  <h2 class="fw-bold mb-4">Shop by Categories</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-3 mb-4" *ngFor="let cat of categories">
+      <div class="card shadow-sm border-0">
+        <img [src]="cat.image" class="card-img-top" alt="{{ cat.name }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ cat.name }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

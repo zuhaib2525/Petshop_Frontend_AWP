@@ -1,0 +1,14 @@
+.services {
+    background: var(--dark-bg);
+    color: var(--text-light);
+  }
+  .services .card {
+    background: #2c2c2c;
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  .services .card:hover {
+    transform: translateY(-8px);
+  }
+  
