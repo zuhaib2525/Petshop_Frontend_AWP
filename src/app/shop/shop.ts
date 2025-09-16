@@ -4,6 +4,7 @@ import { NgFor, CurrencyPipe } from '@angular/common';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 
+
 @Component({
   selector: 'app-shop',
   standalone: true,

@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-hero',
   imports: [],
   templateUrl: './hero.html',
-  styleUrl: './hero.scss'
+  styleUrls: ['./hero.scss']
+
 })
 export class HeroComponent {
 

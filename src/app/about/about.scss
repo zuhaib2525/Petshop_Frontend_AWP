@@ -5,4 +5,13 @@
     font-size: 1.1rem;
     line-height: 1.6;
   }
+  .about-chow {
+    width: 100%;          /* takes full column width */
+    max-width: 450px;     /* keeps it big but not too huge */
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
   

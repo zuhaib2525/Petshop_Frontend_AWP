@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg bg-dark">
   <div class="container">
     <a class="navbar-brand text-white fw-bold" routerLink="/">🐾 Pet Shop</a>
 
@@ -43,6 +43,14 @@
 
         <li class="nav-item">
           <a class="nav-link text-white" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+
+        <!-- ✅ New CRUD Menu -->
+        <li class="nav-item">
+          <a class="nav-link text-warning fw-semibold" routerLink="/pets" routerLinkActive="active">Pets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-warning fw-semibold" routerLink="/pets/add" routerLinkActive="active">Add Pet</a>
         </li>
       </ul>
     </div>

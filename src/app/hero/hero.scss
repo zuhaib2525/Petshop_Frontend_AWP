@@ -25,3 +25,24 @@
   height: auto;
   object-fit: contain;
 }
+.extra-pets {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px; /* spacing between cat & chow chow */
+}
+
+.pet-small {
+  width: 120px;   /* bigger size */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px; /* rounded corners instead of full circle */
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pet-small:hover {
+  transform: scale(1.05);
+}
