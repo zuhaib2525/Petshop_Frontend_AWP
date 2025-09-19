@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login';
 import { AboutComponent } from './about/about';
 import { ContactComponent } from './contact/contact';
 
-// New imports for CRUD
+// CRUD imports
 import { PetsListComponent } from './pets/pets-list/pets-list';
 import { AddPetComponent } from './pets/add-pet/add-pet';
 import { EditPetComponent } from './pets/edit-pet/edit-pet';
@@ -19,8 +19,11 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
 
-  // ✅ CRUD Routes (better naming)
+  // ✅ CRUD Routes
   { path: 'pets', component: PetsListComponent },
   { path: 'pets/add', component: AddPetComponent },
   { path: 'pets/edit/:id', component: EditPetComponent },
+
+  // ✅ Wildcard route → fallback to Home
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

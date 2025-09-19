@@ -1,31 +1,30 @@
 <div class="container mt-4">
-    <h2 class="mb-3">🐾 Pets List</h2>
-  
-    <a routerLink="/pets/add" class="btn btn-success mb-3">➕ Add New Pet</a>
-  
-    <table class="table table-striped table-bordered">
-      <thead class="table-dark">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Breed</th>
-          <th>Age</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Loop pets -->
-        <tr *ngFor="let pet of pets">
-          <td>{{ pet.id }}</td>
-          <td>{{ pet.name }}</td>
-          <td>{{ pet.breed }}</td>
-          <td>{{ pet.age }}</td>
-          <td>
-            <a [routerLink]="['/pets/edit', pet.id]" class="btn btn-primary btn-sm">✏ Edit</a>
-            <button (click)="deletePet(pet.id)" class="btn btn-danger btn-sm">🗑 Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2 class="mb-3">🐾 Pets List</h2>
+
+  <a routerLink="/pets/add" class="btn btn-success mb-3">➕ Add New Pet</a>
+
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop pets -->
+      <tr *ngFor="let pet of pets">
+        <td>{{ pet.id }}</td>
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.breed }}</td>
+        <td>{{ pet.age }}</td>
+        <td>
+          <a [routerLink]="['/pets/edit', pet.id]" class="btn btn-primary btn-sm">✏ Edit</a>
+          <button (click)="deletePet(pet.id)" class="btn btn-danger btn-sm">🗑 Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

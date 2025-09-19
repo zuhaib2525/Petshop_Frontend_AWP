@@ -9,46 +9,69 @@ import { Pet } from '../../models/pet';
   selector: 'app-edit-pet',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './edit-pet.html'
+  templateUrl: './edit-pet.html',
+  styleUrls: ['./edit-pet.scss']
 })
 export class EditPetComponent implements OnInit {
-  petForm!: FormGroup; // declare first
+  petForm!: FormGroup;
+  petId!: number;
 
   constructor(
     private fb: FormBuilder,
-    private petsService: PetService,
+    private petService: PetService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
-  ngOnInit() {
-    // initialize form
+  ngOnInit(): void {
+    this.petId = Number(this.route.snapshot.paramMap.get('id'));
+
     this.petForm = this.fb.group({
-      id: [0],
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       breed: ['', Validators.required],
       age: [0, [Validators.required, Validators.min(0)]],
       type: ['', Validators.required]
     });
 
-    // fetch pet by id and populate form
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.petsService.getPetById(id).subscribe((pet: Pet) => {
-      this.petForm.patchValue(pet);
+    // ✅ Load existing pet data
+    this.petService.getPetById(this.petId).subscribe({
+      next: (pet) => this.petForm.patchValue(pet),
+      error: (err) => {
+        console.error('Error loading pet:', err);
+        alert('Pet not found.');
+        this.router.navigate(['/pets']);
+      }
     });
   }
 
-  onSubmit() {
-    if (this.petForm.valid) {
-      const pet: Pet = {
-        ...(this.petForm.value as Pet),
-        age: Number(this.petForm.value.age) // ensure age is number
-      };
+  // getter for form controls
+  get f() {
+    return this.petForm.controls;
+  }
 
-      // ✅ use updatePet with two arguments
-      this.petsService.updatePet(pet.id!, pet).subscribe(() => {
+  // submit form
+  onSubmit(): void {
+    if (this.petForm.invalid) return;
+
+    const updatedPet: Pet = {
+      ...(this.petForm.value as Pet),
+      age: Number(this.petForm.value.age)
+    };
+
+    this.petService.updatePet(this.petId, updatedPet).subscribe({
+      next: () => {
+        alert('Pet updated successfully!');
         this.router.navigate(['/pets']);
-      });
-    }
+      },
+      error: (err) => {
+        console.error('Error updating pet:', err);
+        alert('Failed to update pet.');
+      }
+    });
+  }
+
+  // ✅ new cancel method
+  cancel(): void {
+    this.router.navigate(['/pets']);
   }
 }
